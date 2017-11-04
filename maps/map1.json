@@ -1,0 +1,93 @@
+{
+	"options": {
+		"tileset": "terrain.png",
+		"width": 16,
+		"height": 12,
+		"sprite": {
+			"width": 64,
+			"height": 64
+		},
+		"tile": {
+			"width": 50,
+			"height": 50
+		},
+		"start": {
+			"x": 2,
+			"y": 2,
+			"dir": "right"
+		},
+		"spawners": [
+			{
+				"x": 2,
+				"y": 9,
+				"dir": "up"
+			},
+			{
+				"x": 6,
+				"y": 6,
+				"dir": "right"
+			},
+			{
+				"x": 13,
+				"y": 2,
+				"dir": "left"
+			},
+			{
+				"x": 13,
+				"y": 9,
+				"dir": "left"
+			}
+		],
+		"types": {
+			"x": {
+				"sx": 13,
+				"sy": 6,
+				"wall": true,
+				"shadow": {
+					"cast": true
+				}
+			},
+			"g": {
+				"sx": 2,
+				"sy": 1,
+				"walkable": true,
+				"shadow": {
+					"receive": true
+				}
+			},
+			"w": {
+				"sx": 3,
+				"sy": 4,
+				"walkable": true,
+				"shadow": {
+					"receive": true
+				}
+			}
+		}
+	},
+	"tiles": [
+		["x","x","x","x","x","x","x","x","x","x","x","x","x","x","x","x"],
+
+		["x","g","g","g","g","g","g","g","g","g","g","g","w","w","w","x"],
+
+		["x","g","g","g","g","g","g","g","g","g","g","g","w","w","w","x"],
+
+		["x","g","g","g","g","g","g","g","g","g","g","g","w","w","w","x"],
+
+		["x","x","g","x","x","x","x","g","g","g","x","x","x","x","x","x"],
+
+		["x","g","g","g","x","g","g","g","g","g","g","g","g","g","g","x"],
+
+		["x","g","g","g","x","g","g","g","g","g","g","g","g","g","g","g"],
+
+		["x","g","g","g","x","g","g","g","g","g","g","g","g","g","g","x"],
+
+		["x","g","g","g","g","g","g","g","x","x","x","x","x","x","x","x"],
+
+		["x","g","g","g","x","g","g","g","g","g","g","g","g","g","g","x"],
+
+		["x","g","g","g","x","g","g","g","x","g","g","g","g","g","g","x"],
+
+		["x","x","x","x","x","x","x","x","x","x","x","x","x","x","x","x"],
+	]
+}
