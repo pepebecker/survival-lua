@@ -1,9 +1,14 @@
+local map = require 'map'
 local utils = require 'utils'
 
 local M = {}
 
 function M.loadAssets()
 	M.sprite = love.graphics.newImage('images/bullet.png')
+end
+
+function M.init(map)
+	M.map = map
 end
 
 function M.create(cx, cy, dir)
@@ -13,11 +18,15 @@ function M.create(cx, cy, dir)
 			y = cy,
 		},
 		dir = dir,
-		speed = 500,
+		speed = 500
 	}
 end
 
 function M.update(bullet, dt)
+	if not bullet or bullet.hit then
+		return
+	end
+
 	if bullet.dir == 'up' then
 		bullet.pos.y = bullet.pos.y - dt * bullet.speed
 	end
@@ -29,6 +38,11 @@ function M.update(bullet, dt)
 	end
 	if bullet.dir == 'right' then
 		bullet.pos.x = bullet.pos.x + dt * bullet.speed
+	end
+
+	tile = map.getTileAtPixelPos(M.map, bullet.pos.x, bullet.pos.y)
+	if not tile.walkable then
+		bullet.hit = true
 	end
 end
 

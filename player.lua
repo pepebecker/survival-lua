@@ -14,6 +14,7 @@ end
 function M.init(map)
 	M.map = map
 	character.init(map)
+	bullet.init(map)
 	M.fireRate = .5
 	M.lastTime = love.timer.getTime()
 end

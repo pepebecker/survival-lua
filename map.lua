@@ -26,6 +26,12 @@ function M.getTile(map, x, y)
 	return map.tiles[y][x]
 end
 
+function M.getTileAtPixelPos(map, px, py)
+	x = math.floor(px / map.options.tile.width) + 1
+	y = math.floor(py / map.options.tile.height) + 1
+	return M.getTile(map, x, y)
+end
+
 function M.createTile(map, x, y, sx, sy, walkable, wall)
 	local w = map.options.sprite.width
 	local h = map.options.sprite.height

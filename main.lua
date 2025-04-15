@@ -1,4 +1,5 @@
 local map = require 'map'
+local character = require 'character'
 local zombie = require 'zombie'
 local player = require 'player'
 local bullet = require 'bullet'
@@ -31,9 +32,9 @@ function love.load()
 end
 
 function shoot(survivor, dx, dy)
-	local bullet = player.shoot(survivor, dx, dy)
-	if bullet then
-		table.insert(bullets, bullet)
+	local _bullet = player.shoot(survivor, dx, dy)
+	if _bullet then
+		table.insert(bullets, _bullet)
 	end
 end
 
@@ -74,6 +75,17 @@ function love.update(dt)
 
 	for i=1,#bullets do
 		bullet.update(bullets[i], dt)
+		if bullets[i] then
+			for i=1,#zombie.list do
+				if character.collidesWithPoint(zombie.list[i], bullets[i].x, bullets[i].y) then
+					-- zombie.update(zombie.list[i], dt)
+					table.remove(bullets, i)
+				end
+			end
+			if bullets[i].hit then
+				table.remove(bullets, i)
+			end
+		end
 	end
 
 	handleInput(dt)

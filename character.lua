@@ -1,5 +1,6 @@
 local map = require 'map'
 local utils = require 'utils'
+local position = require 'position'
 
 local M = {}
 
@@ -107,6 +108,10 @@ end
 
 function M.update(character, dt)
 	moving(character, dt)
+end
+
+function M.collidesWithPoint(character, x, y)
+	position.comparePixelPos(x, y, character.pixelPos.x, character.pixelPos.y)
 end
 
 local function draw(image, x, y, rot, w, h)

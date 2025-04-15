@@ -14,4 +14,6 @@ function M.dir2rot(dir)
 	return rotations[dir]
 end
 
+-- function M.posFromPixelPos
+
 return M
